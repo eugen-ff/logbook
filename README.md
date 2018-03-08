@@ -294,6 +294,25 @@ Logbook logbook = Logbook.builder()
     .build();
 ```
 
+
+
+| Marker     | Description                      |
+|------------|----------------------------------|
+| `request`  | HTTP Request                     |
+| `response` | HTTP Response                    |
+| `local`    | HTTP message originated locally  |
+| `remote`   | HTTP message originated remotely |
+
+Responses will have additional markers depending on the status code family:
+
+| Marker     | Description                      |
+|------------|----------------------------------|
+| `1xx`      | Informational responses          |
+| `2xx`      | Success                          |
+| `3xx`      | Redirection                      |
+| `4xx`      | Client errors                    |
+| `5xx`      | Server errors                    |
+
 ##### Stream
 
 An alternative implementation is to log requests and responses to a `PrintStream`, e.g. `System.out` or `System.err`. This is usually a bad choice for running in production, but can sometimes be useful for short-term local development and/or investigation.
